@@ -1,0 +1,64 @@
+$primaryColor : #af1313;
+$secondaryColor : #e72929;
+$tertiary : white;
+header{
+  position: relative;
+  background: $tertiary;
+  padding: 0;
+  border-bottom: 1px solid $secondaryColor;
+
+  a{
+    color: $primaryColor;
+    &:hover {
+        background: $secondaryColor;
+        color: $tertiary;
+        cursor: pointer;
+      }
+    &.logo{
+      font-weight: bold;
+      padding: 1rem;
+    }
+    span{
+      background: #ff4d4d;
+      color: $tertiary;
+      padding: 0.1rem 0.45rem;
+      border-radius: 100rem;
+      font-size: 0.9rem;
+    }
+  }
+  ul{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    a{
+      padding: 1rem;
+      display: inline-block;
+    }
+    li{
+      &.menu-container{
+        position: relative;
+        .menu{
+          position: absolute;
+          z-index: 1;
+          background: whitesmoke;
+          display: none;
+          a{
+            width: 100%;
+            min-width: 8rem;
+          }
+        }
+        &:hover {
+          .menu {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
