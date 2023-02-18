@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+    "outDir": "./built",
+    "strict": true,
+    "moduleResolution":"node",
+    "experimentalDecorators":true,
+    "emitDecoratorMetadata":true,
+    "esModuleInterop":true,
+  },
+  "include":["src/**/*"],
+}

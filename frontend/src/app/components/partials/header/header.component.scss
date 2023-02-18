@@ -13,6 +13,7 @@ header{
         background: $secondaryColor;
         color: $tertiary;
         cursor: pointer;
+        border-radius: 0.5rem;
       }
     &.logo{
       font-weight: bold;
@@ -58,7 +59,13 @@ header{
 }
 
 .container{
-  margin: 0 auto;
+  margin: 3rem auto;
+  background: #f0d2d2;
   display: flex;
   justify-content: space-between;
+  vertical-align: middle;
+  border-radius: 0.5rem;
+  .logo-div{
+    display: flex;
+  }
 }
