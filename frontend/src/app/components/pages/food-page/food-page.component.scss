@@ -4,9 +4,8 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 3rem;
-    & > {
+    &{
         min-width: 25rem;
-        max-width: 40rem;
     }
     img{
         border-radius: 3rem;
