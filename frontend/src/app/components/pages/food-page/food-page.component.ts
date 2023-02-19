@@ -25,7 +25,7 @@ export class FoodPageComponent implements OnInit {
         console.log(params?.id)
         this.foodService.getFoodById(params?.id).subscribe((food:any) => { 
            console.log(food)
-           this.food = food[0];
+           this.food = food;
         });;
       }
     })
