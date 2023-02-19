@@ -21,13 +21,13 @@ export class CartService {
   }
 
   removeFromCart(foodId:string) { 
-    this.cart.items = this.cart.items.filter(item => item.food.id != +foodId)
+    this.cart.items = this.cart.items.filter(item => item.food.id != foodId)
     this.setCartToLocalStorage();
   }
 
   changeQuantity(foodId: string, quantity: number) {
     let cartItem = this.cart.items
-      .find(item => item.food.id == +foodId);
+      .find(item => item.food.id == foodId);
     if (!cartItem) return;
     cartItem.quantity = quantity;
     cartItem.price = quantity * cartItem.price;

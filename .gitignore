@@ -36,3 +36,6 @@ frontend/typings
 # System files
 .DS_Store
 Thumbs.db
+
+#Backend
+backend/src/.env

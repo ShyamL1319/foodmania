@@ -18,14 +18,18 @@ router.post("/seed", async (req: Request, res: Response) => {
 })
 router.post("/login",asyncHandler( async(req: Request, res: Response) => {
     const { email, password } = req.body;
-    const user = await UserModel.findOne({ email, password }) as any;
+    const user = await UserModel.findOne({ email }) as any;
+    if (!user) { 
+        res.send("With this Email id No User exists");
+    }
+    const passwordMatch = await bcryptjs.compare(password, user.password);
     const token = await generateTokenResponse({ user });
 
-    if (user) {
+    if (passwordMatch) {
         res.json({ ...user?._doc,token });
         res.end();
     } else {
-        res.status(400).send("User name or passord is not valid!");
+        res.status(400).send("User name or password is not valid!");
     }
 }));
 
@@ -42,15 +46,17 @@ router.post("/register", asyncHandler( async(req: Request, res: Response) => {
     const newUser: IUser = {
         id: '',
         name,
-        email: email.toLowercase(),
-        password,
+        email: email.toLowerCase(),
+        password:encPwd,
         address,
         isAdmin:false
     }
 
     const dbUser = await UserModel.create(newUser) as any;
     const token = await generateTokenResponse({ dbUser });
-    res.json({ ...dbUser?._doc,token });
+    const data = { ...dbUser?._doc, token };
+    delete data["password"];
+    res.json(data);
     res.end();
 }))
 
