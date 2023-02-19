@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { icon, LatLng, LatLngExpression, LatLngTuple, LeafletMouseEventHandlerFn, map, Map, marker, Marker, tileLayer } from 'leaflet';
 import { LocationService } from 'src/app/services/location.service';
 import { Order } from 'src/app/shared/models/order';
@@ -8,7 +8,7 @@ import { Order } from 'src/app/shared/models/order';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterViewInit {
+export class MapComponent implements OnChanges {
   @ViewChild('map', { static: true }) mapRef!: ElementRef;
   private readonly DEFAULT_LATLNG: LatLngTuple = [13.75, 21.62];
   private readonly MARKER_ZOOM_LEVEL = 16;
@@ -20,13 +20,35 @@ export class MapComponent implements OnInit, AfterViewInit {
   map!: Map;
   currentMarker!: Marker;
   @Input()
-  order: Order = new Order();;
+  order: Order = new Order();
+  @Output()
+  mapLatLng = new EventEmitter();
+  @Input()
+  readonly = false;
   constructor(private locationService:LocationService) { }
-  ngOnInit(): void {
-  }
-  ngAfterViewInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     this.initMap();
-   }
+    if (!this.order) { 
+      this.initMap();
+      return;
+    }
+    if (this.readonly && this.addressLatLng) { 
+      this.showLocationOnReadonlyMode();
+    }
+  }
+  showLocationOnReadonlyMode() {
+    const m = this.map;
+    this.setMarker(this.addressLatLng);
+    m.setView(this.addressLatLng, this.MARKER_ZOOM_LEVEL);
+    m.dragging.disable();
+    m.touchZoom.disable();
+    m.doubleClickZoom.disable();
+    m.keyboard.disable();
+    m.off('click');
+    m.tap?.disable();
+    this.currentMarker.dragging?.disable()
+  }
+
 
   initMap() {
     if (this.map) {
@@ -79,6 +101,11 @@ export class MapComponent implements OnInit, AfterViewInit {
     latlng.lat = parseFloat(latlng.lat.toFixed(8))
     latlng.lng = parseFloat(latlng.lng.toFixed(8))
     this.order.addressLatLng = latlng;
+    this.mapLatLng.emit(this.order.addressLatLng);
     console.log(this.order.addressLatLng);
+  }
+
+  get addressLatLng() { 
+    return this.order.addressLatLng!;
   }
 }

@@ -26,6 +26,7 @@
     "jquery": "^3.6.3",
     "leaflet": "^1.9.3",
     "ng-starrating": "^1.0.20",
+    "paypal-checkout": "^4.0.336",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

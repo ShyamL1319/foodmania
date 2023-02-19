@@ -23,7 +23,7 @@ router.post("/login",asyncHandler( async(req: Request, res: Response) => {
         res.send("With this Email id No User exists");
     }
     const passwordMatch = await bcryptjs.compare(password, user.password);
-    const token = await generateTokenResponse({ user });
+    const token = await generateTokenResponse(user)
 
     if (passwordMatch) {
         res.json({ ...user?._doc,token });
