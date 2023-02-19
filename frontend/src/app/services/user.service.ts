@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { IUserLogin } from '../shared/interfaces/user.login';
 import { IUserRegister } from '../shared/interfaces/user.register';
 import { User } from "../shared/models/user"
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,14 @@ export class UserService {
   USER_KEY = "user";
   constructor(
     private httpService: HttpClient,
-    private matSnackBar: MatSnackBar,
+    private snackbarService:SnackbarService,
   ) {
     this.userObservable = this.userSubject.asObservable();
   }
   
-
+  public get currentUser():User { 
+    return this.userSubject.value;
+  }
   login(userLogin: IUserLogin): Observable<User> { 
 
     return this.httpService.post<User>(USER_LOGIN_URL, userLogin).pipe(
@@ -29,13 +31,13 @@ export class UserService {
         next: (user:User) => { 
           this.userSubject.next(user);
           this.setUserToLocalStorage(user);
-          this.snackPositionTopCenter(`
+          this.snackbarService.snackPositionTopCenter(`
           Welcome to FoodMania ${user.name}! 
           Login Success.`);
         },
         error: (errorResponse) => { 
             //this.toastrService.error(errorResponse.error,'Login Failed')
-          this.snackPositionTopCenter(`
+          this.snackbarService.snackPositionTopCenter(`
             FoodMania ${errorResponse.error}! 
             Login Failed.`);
         }
@@ -49,12 +51,12 @@ export class UserService {
         next: (user: User) => {
           this.userSubject.next(user);
           this.setUserToLocalStorage(user);
-          this.snackPositionTopCenter(`
+          this.snackbarService.snackPositionTopCenter(`
           Welcome to FoodMania ${user.name}! 
           Registeration Success.`);
          },
         error: (errorResponse) => {
-          this.snackPositionTopCenter(`
+          this.snackbarService.snackPositionTopCenter(`
             FoodMania ${errorResponse.error}! 
             Registration Failed.`);
         }
@@ -68,14 +70,6 @@ export class UserService {
     window.location.reload()
    }
 
-
-  snackPositionTopCenter(msg: string = "") {
-    this.matSnackBar.open(msg, "Okay!", {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-    });
-  }
 
   setUserToLocalStorage(user:User) { 
     localStorage.setItem(this.USER_KEY, JSON.stringify(user));
