@@ -4,16 +4,19 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm install --force && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^14.2.7",
     "@angular/animations": "^14.2.12",
     "@angular/cdk": "^13.0.0",
+    "@angular/cli": "~14.2.7",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
+    "@angular/compiler-cli": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
     "@angular/material": "^13.0.0",
@@ -22,6 +25,9 @@
     "@angular/router": "^14.2.0",
     "@popperjs/core": "^2.11.6",
     "@types/bootstrap": "^5.2.6",
+    "@types/jasmine": "~4.0.0",
+    "@types/leaflet": "^1.9.0",
+    "@types/node": "^18.14.4",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "leaflet": "^1.9.3",
@@ -29,20 +35,15 @@
     "paypal-checkout": "^4.0.336",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "typescript": "~4.7.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.7",
-    "@angular/cli": "~14.2.7",
-    "@angular/compiler-cli": "^14.2.0",
-    "@types/jasmine": "~4.0.0",
-    "@types/leaflet": "^1.9.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2"
+    "karma-jasmine-html-reporter": "~2.0.0"
   }
 }
