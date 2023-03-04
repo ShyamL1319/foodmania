@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { LoadingService } from './services/loading.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { LoadingService } from './services/loading.service';
 })
 export class AppComponent {
   title = 'frontend';
-  constructor(public loader:LoadingService) { 
-
+  constructor(public loader: LoadingService,
+    private cdRef: ChangeDetectorRef) { }
+    ngAfterContentChecked() { 
+    this.cdRef.detectChanges()
   }
 }

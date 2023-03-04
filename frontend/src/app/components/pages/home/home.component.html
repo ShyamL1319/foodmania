@@ -1,8 +1,15 @@
-<app-search></app-search>
+<!-- <app-search></app-search>
 <app-tags></app-tags>
 <app-not-found [visible]="!foods || !foods.length"
 resetLinkText="Reset Search"
-></app-not-found>
+></app-not-found> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <app-counter></app-counter>
+        </div>
+    </div>
+</div>
 <ul>
     <li *ngFor="let food of foods">
         <a routerLink="/food/{{food.id}}">

@@ -29,6 +29,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
 import { OrderTrackComponent } from './components/pages/order-track/order-track.component';
+import { CounterComponent } from './components/counter/counter/counter.component';
+import { CounterOutputComponent } from './components/counter/counter-output/counter-output.component';
+import { CounterButtonsComponent } from './components/counter/counter-buttons/counter-buttons.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './components/counter/state/counter.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +56,10 @@ import { OrderTrackComponent } from './components/pages/order-track/order-track.
     MapComponent,
     PaymentPageComponent,
     PaypalButtonComponent,
-    OrderTrackComponent
+    OrderTrackComponent,
+    CounterComponent,
+    CounterOutputComponent,
+    CounterButtonsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,7 @@ import { OrderTrackComponent } from './components/pages/order-track/order-track.
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    StoreModule.forRoot({counter: counterReducer})
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
