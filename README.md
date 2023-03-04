@@ -1,27 +1,99 @@
-# Frontend
+<h1 align="center" id="title">FoodMania</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+<p align="center"><img src="https://socialify.git.ci/ShyamL1319/foodmania/image?logo=https%3A%2F%2Fres.cloudinary.com%2Fshyam-auth%2Fimage%2Fupload%2Fv1677922818%2Ffoodmania%2FScreenshot_2023-03-04_at_15.01.26_tveyki.png&amp;name=1&amp;pattern=Formal%20Invitation&amp;theme=Light" alt="project-image"></p>
 
-## Development server
+<p id="description">Foodmania is an restaurant aggregator and food delivery company with payment gateway integration project for learners.</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<p align="center"><img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&amp;logo=mongodb&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&amp;logo=express&amp;logoColor=%2361DAFB" alt="shields"><img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&amp;logo=angular&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&amp;logo=node.js&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&amp;logo=reactivex&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&amp;logo=SASS&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&amp;logo=visual-studio-code&amp;logoColor=white" alt="shields"><img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="shields"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="shields"></p>
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h2>🚀 Demo</h2>
 
-## Build
+[https://foodmania.onrender.com](https://foodmania.onrender.com)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<h2>Project Screenshots:</h2>
 
-## Running unit tests
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922818/foodmania/Screenshot_2023-03-04_at_15.01.26_tveyki.png" alt="project-screenshot" width="400" height="400/">
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922810/foodmania/Screenshot_2023-03-04_at_15.01.38_figmc0.png" alt="project-screenshot" width="400" height="400/">
 
-## Running end-to-end tests
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922723/foodmania/Screenshot_2023-03-04_at_14.57.27_nuqyrx.png" alt="project-screenshot" width="400" height="400/">
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922689/foodmania/Screenshot_2023-03-04_at_14.57.56_ujitqc.png" alt="project-screenshot" width="400" height="400/">
 
-## Further help
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922724/foodmania/Screenshot_2023-03-04_at_14.58.09_t3cg2j.png" alt="project-screenshot" width="400" height="400/">
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922725/foodmania/Screenshot_2023-03-04_at_14.59.38_kzueaw.png" alt="project-screenshot" width="400" height="400/">
+
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922686/foodmania/Screenshot_2023-03-04_at_15.00.07_ocfbcp.png" alt="project-screenshot" width="400" height="400/">
+
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922724/foodmania/Screenshot_2023-03-04_at_15.00.13_ebgpn0.png" alt="project-screenshot" width="400" height="400/">
+
+<img src="https://res.cloudinary.com/shyam-auth/image/upload/v1677922801/foodmania/Screenshot_2023-03-04_at_15.04.04_dbpa72.png" alt="project-screenshot" width="400" height="400/">
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   User can choose according to his/ her prefs Food
+*   Can see Rating and price with pic of foods
+*   Registration/Login to order food
+*   Payment option is available by online credit/debit card whatever
+*   Payment summary will be available can be seen
+*   Data will be stored on mongodb atlas
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone the repository</p>
+
+```
+git clone git@github.com:ShyamL1319/foodmania.git
+```
+
+<p>2. Goto Root folder</p>
+
+```
+cd foodmania
+```
+
+<p>3. Create .env file and create two keys MONGODB_URI = "" JWT_SECRET="jwt secret"</p>
+
+```
+touch backend/src/.env
+```
+
+<p>4. Run these command 1</p>
+
+```
+npm run dev
+```
+
+<p>5. Run these command 2</p>
+
+```
+npm run start
+```
+
+<p>6. Goto browser enter and use the Application</p>
+
+```
+http://localhost:3000
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Nodejs
+*   Angular
+*   Mongodb
+*   Express
+*   Mongoose
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the ME;
