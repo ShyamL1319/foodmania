@@ -14,7 +14,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { TitleComponent } from './components/partials/title/title.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { InputContainerComponent } from './components/partials/input-container/input-container.component';
 import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
@@ -34,6 +34,7 @@ import { CounterOutputComponent } from './components/counter/counter-output/coun
 import { CounterButtonsComponent } from './components/counter/counter-buttons/counter-buttons.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './components/counter/state/counter.reducer';
+import { CustomCounterInputComponent } from './components/counter/custom-counter-input/custom-counter-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { counterReducer } from './components/counter/state/counter.reducer';
     OrderTrackComponent,
     CounterComponent,
     CounterOutputComponent,
-    CounterButtonsComponent
+    CounterButtonsComponent,
+    CustomCounterInputComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { counterReducer } from './components/counter/state/counter.reducer';
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    StoreModule.forRoot({counter: counterReducer})
+    StoreModule.forRoot({ counter: counterReducer }),
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
